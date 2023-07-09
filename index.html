@@ -3,13 +3,134 @@
     <head>
         <meta charset="utf-8">
         <title>SQIsign</title>
-        <link rel="icon" href="/favicon.ico"/>
+        <link rel="icon" href="/favicon.ico">
+        <style>
+            li.plus::marker { content: "➕ "; }
+            li.minus::marker { content: "➖ "; }
+            table { border-collapse: collapse; }
+            thead, tbody { border: 1px solid black; }
+            td, th { padding: .5ex 1em; text-align: center; }
+        </style>
     <body>
         <main>
             <header>
                 <h1>⛷️ SQIsign</h1>
             </header>
 
+            <h2>core properties</h2>
+            <ul>
+                <li class="plus">
+                    Compact keys and signatures.
+                <li class="plus">
+                    Confident tuning of security parameters.
+                <li class="plus">
+                    Relatively simple and fast verification.
+                <li class="minus">
+                    A complex signing procedure.
+            </ul>
+
+            <h3>sizes</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>parameter set
+                    <th>public keys
+                    <th>signatures
+                <tbody>
+                <tr>
+                    <td>NIST‑<b>Ⅰ</b>
+                    <td><b> 64</b> bytes
+                    <td><b>177</b> bytes
+                <tr>
+                    <td>NIST‑<b>Ⅲ</b>
+                    <td><b> 96</b> bytes
+                    <td><b>263</b> bytes
+                <tr>
+                    <td>NIST‑<b>Ⅴ</b>
+                    <td><b>128</b> bytes
+                    <td><b>335</b> bytes
+            </table>
+
+            <h3>performance</h3>
             <p>
-            Hello, world!
+            Cycle counts for a <em>generic C implementation</em>
+            running on an Intel <em>Ice Lake</em> CPU.
+            Optimizations are certainly possible and work in progress.
+            <table>
+                <thead>
+                <tr>
+                    <th>parameter set
+                    <th>keygen
+                    <th>signing
+                    <th>verifying
+                <tbody>
+                <tr>
+                    <td>NIST‑<b>Ⅰ</b>
+                    <td><b>  3728</b> megacycles
+                    <td><b>  5779</b> megacycles
+                    <td><b>   108</b> megacycles
+                <tr>
+                    <td>NIST‑<b>Ⅲ</b>
+                    <td><b> 23734</b> megacycles
+                    <td><b> 43760</b> megacycles
+                    <td><b>   654</b> megacycles
+                <tr>
+                    <td>NIST‑<b>Ⅴ</b>
+                    <td><b> 91049</b> megacycles
+                    <td><b>158544</b> megacycles
+                    <td><b>  2177</b> megacycles
+            </table>
+
+            <h2>resources</h2>
+            <h3>specification</h3>
+            <ul>
+                <li>
+                    <a href="spec/sqisign-20230601.pdf">specification (version 1.0 from 2023‑06‑01)</a>
+            </ul>
+            <h3>implementation</h3>
+            <ul>
+                <li>
+                    <a href="https://github.com/SQISign/the-sqisign">implementation (version under continuous development)</a>
+                <li>
+                    <a href="https://github.com/SQISign/the-sqisign/tree/nist-v1">implementation (version 1.0 from 2023-06-01)</a>
+            </ul>
+            <h3>papers</h3>
+            <ul>
+                <li>
+                    Luca De Feo, David Kohel, Antonin Leroux, Christophe Petit, and Benjamin Wesolowski:
+                    <a href="https://ia.cr/2020/1240">SQISign: compact post-quantum signatures from quaternions and isogenies</a>
+                    (2020)
+                <li>
+                    Luca De Feo, Antonin Leroux, Patrick Longa, and Benjamin Wesolowski:
+                    <a href="https://ia.cr/2022/234">New algorithms for the Deuring correspondence: Towards practical and secure SQISign signatures</a>
+                    (2022)
+            </ul>
+
+            <h2>contributors</h2>
+            <p>
+            (Alphabetical order.)
+            <ul>
+                <li> Jorge Chavez-Saab, <i>Technology Innovation Institute, UAE</i>
+                <li> Maria Corte-Real Santos, <i>University College London, UK</i>
+                <li> Luca De Feo, <i>IBM Research Europe, Switzerland</i>
+                <li> Jonathan Komada Eriksen, <i>Norwegian University of Science and Technology, Norway</i>
+                <li> Basil Hess, <i>IBM Research Europe, Switzerland</i>
+                <li> David Kohel, <i>Institut de Mathématiques de Marseille, Aix-Marseille University, France</i>
+                <li> Antonin Leroux, <i>DGA-MI, Bruz, France and Université de Rennes, France</i>
+                <li> Patrick Longa, <i>Microsoft Research, USA</i>
+                <li> Michael Meyer, <i>University of Regensburg, Germany</i>
+                <li> Lorenz Panny, <i>Academia Sinica, Taiwan</i>
+                <li> Sikhar Patranabis, <i>IBM Research India</i>
+                <li> Christophe Petit, <i>Université libre de Bruxelles, Belgium and University of Birmingham, UK</i>
+                <li> Francisco Rodríguez Henríquez, <i>Technology Innovation Institute, UAE</i>
+                <li> Sina Schaeffler, <i>IBM Research Europe and ETH Zürich, Switzerland</i>
+                <li> Benjamin Wesolowski, <i>CNRS and ENS de Lyon, France</i>
+            </ul>
+            <h3>funding</h3>
+            <ul>
+                <li> UK EPSRC grant EP/S022503/1
+                <li> Academia Sinica Investigator Award AS‑IA‑109‑M01
+                <li> France 2030 program, grant agreement No. ANR-22-PETQ-0008 PQ-TLS
+                <li> Agence Nationale de la Recherche, grant ANR MELODIA (ANR-20-CE40-0013)
+            </ul>
         </main>
